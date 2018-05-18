@@ -18,7 +18,7 @@ public class ShipControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float h = -Input.GetAxis("Vertical");
+        float h = -Input.GetAxis("Horizontal");
         transform.LookAt(egg);
         transform.RotateAround(egg.position, Vector3.forward, speed * Time.deltaTime *h);
 

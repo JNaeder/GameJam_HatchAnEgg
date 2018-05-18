@@ -12,13 +12,12 @@ public class Egg : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Laser") {
-            print("LaserHit");
             transform.localScale *= scaleNum;
         }
     }
