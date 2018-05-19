@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{E1487D78-8097-F147-D0D4-E5346233D66A}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Egg.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Laser.cs" Line="41" Column="32" />
+      <File FileName="Assets/Scripts/Egg.cs" Line="240" Column="47" />
+      <File FileName="Assets/Scripts/ShipControl.cs" Line="128" Column="23" />
+      <File FileName="Assets/Scripts/EnemyShip.cs" Line="78" Column="19" />
+      <File FileName="Assets/Scripts/EnemyLaser.cs" Line="25" Column="6" />
+      <File FileName="Assets/Scripts/SmallEgg.cs" Line="43" Column="23" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

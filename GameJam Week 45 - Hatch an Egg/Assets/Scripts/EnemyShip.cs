@@ -1,0 +1,82 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyShip : MonoBehaviour {
+
+	Transform ship;
+	public float speed, health;
+	public GameObject laser;
+
+	float firedTime, fireWaitTime, fireRate;
+
+	bool canShoot;
+
+	// Use this for initialization
+	void Start () {
+		ship = FindObjectOfType<ShipControl>().transform;
+		fireRate = Random.Range(0.7f, 1.5f);
+		//Egg.enemyNum++;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		LookAtPlayer();
+		transform.Translate(Vector3.up * Time.deltaTime * speed, Space.Self);
+
+		Shoot();
+	}
+
+
+
+	void LookAtPlayer(){
+		Vector3 norTar = (ship.position - transform.position).normalized;
+        float angle = Mathf.Atan2(norTar.y, norTar.x) * Mathf.Rad2Deg;
+        Quaternion rotation = new Quaternion();
+        rotation.eulerAngles = new Vector3(0, 0, angle - 90);
+        transform.rotation = rotation;
+	}
+
+
+	void Shoot(){
+
+		if (canShoot)
+		{
+			fireWaitTime = 1 / fireRate;
+			if (Time.time >= firedTime + fireWaitTime)
+			{
+				firedTime = Time.time;
+				GameObject firedLaser = Instantiate(laser, transform.position, Quaternion.identity);
+				firedLaser.transform.rotation = transform.rotation;
+			}
+		}
+	}
+
+	public void TakeDamage(float damage){
+		health -= damage;
+		if(health <= 0){
+			Death();
+		}
+	}
+
+	void Death(){
+		Egg.enemyNum--;
+		Destroy(gameObject);
+	}
+
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		canShoot = true;
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if(collision.gameObject.tag == "Player"){
+			ShipControl Playership = collision.gameObject.GetComponent<ShipControl>();
+			Playership.TakeDamage(2);
+			Egg.enemyNum--;
+			Destroy(gameObject);
+		}
+	}
+}

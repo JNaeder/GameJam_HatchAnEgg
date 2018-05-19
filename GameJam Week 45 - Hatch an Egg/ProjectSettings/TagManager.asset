@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Laser
+  - Egg
+  - Enemy
+  - EnemyLaser
+  - StartShooingTrigger
+  - SmallEgg
   layers:
   - Default
   - TransparentFX
@@ -17,11 +22,11 @@ TagManager:
   - Player
   - Laser
   - Egg
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - EnemyLaser
+  - LaserDestroy
+  - SmallEgg
+  - EggDestroy
   - 
   - 
   - 
