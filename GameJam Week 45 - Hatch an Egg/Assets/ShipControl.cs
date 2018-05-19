@@ -18,14 +18,21 @@ public class ShipControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float h = -Input.GetAxis("Horizontal");
-        transform.LookAt(egg);
-        transform.RotateAround(egg.position, Vector3.forward, speed * Time.deltaTime *h);
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        Vector3 shipPos = transform.position;
+
+        shipPos += new Vector3(speed * Time.deltaTime * h, speed * Time.deltaTime * v, 0);
+        shipPos.x = Mathf.Clamp(shipPos.x, -23f, 23f);
+        shipPos.y = Mathf.Clamp(shipPos.y, -18.7f, -7.6f);
+
+        transform.position = shipPos;
 
         fireWaitTime = 1 / fireRate;
 
 
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetKey(KeyCode.Space)) {
             if (Time.time >= firedTime + fireWaitTime) {
                 
                 firedTime = Time.time;

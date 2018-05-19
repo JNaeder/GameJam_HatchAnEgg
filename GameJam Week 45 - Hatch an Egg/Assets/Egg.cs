@@ -18,7 +18,7 @@ public class Egg : MonoBehaviour {
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Laser") {
-            transform.localScale *= scaleNum;
+            transform.localScale *= 1/scaleNum;
         }
     }
 }
