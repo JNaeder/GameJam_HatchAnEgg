@@ -27,7 +27,7 @@ TagManager:
   - LaserDestroy
   - SmallEgg
   - EggDestroy
-  - 
+  - StartShootingTrigger
   - 
   - 
   - 

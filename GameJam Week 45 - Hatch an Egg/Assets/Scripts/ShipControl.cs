@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class ShipControl : MonoBehaviour {
 
@@ -22,6 +23,12 @@ public class ShipControl : MonoBehaviour {
 
     float firedTime, fireWaitTime;
 
+    [FMODUnity.EventRef]
+    public string fireLaserSound, shootingChargeSound;
+
+    FMOD.Studio.EventInstance chargingSound;
+
+
     // Use this for initialization
     void Start () {
         firedTime = Time.time;
@@ -35,7 +42,9 @@ public class ShipControl : MonoBehaviour {
         newHealthBarSize = healthBarSize.x;
         healthRatio = health / startHealth;
 
-
+        chargingSound = FMODUnity.RuntimeManager.CreateInstance(shootingChargeSound);
+        chargingSound.setParameterValue("isShooting", 0);
+        chargingSound.start();
     }
 	
 	// Update is called once per frame
@@ -72,6 +81,7 @@ public class ShipControl : MonoBehaviour {
         newShootChargeSize = Mathf.Lerp(shootCapScale.x, startShootChargeSize * shootChargeRatio, 0.1f);
         shootCapScale.x = newShootChargeSize;
         shootingChargeMeter.transform.localScale = shootCapScale;
+        chargingSound.setParameterValue("ChargeRatio", shootChargeRatio);
 	}
 	void AdjustHealthBar()
     {
@@ -85,6 +95,7 @@ public class ShipControl : MonoBehaviour {
 		fireWaitTime = 1 / fireRate;
         if (Input.GetKey(KeyCode.Space))
         {
+            chargingSound.setParameterValue("isShooting", 0);
             if (shootingCapacityNum > 0)
             {
                 if (Time.time >= firedTime + fireWaitTime)
@@ -92,18 +103,24 @@ public class ShipControl : MonoBehaviour {
                     firedTime = Time.time;
                     shootingCapacityNum--;
                     Instantiate(laser, transform.position, Quaternion.identity);
+                    FMODUnity.RuntimeManager.PlayOneShot(fireLaserSound, transform.position);
                 }
             }
         }
         else
         {
+
             if (shootingCapacityNum < startShootCap)
             {
+                chargingSound.setParameterValue("isShooting", 1);
                 if (Time.time >= firedTime + fireWaitTime / 2)
-                {               
+                {
                     firedTime = Time.time;
                     shootingCapacityNum++;
                 }
+            }
+            else {
+                chargingSound.setParameterValue("isShooting", 0);
             }
         }
 	}

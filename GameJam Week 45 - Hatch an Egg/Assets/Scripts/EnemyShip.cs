@@ -1,22 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class EnemyShip : MonoBehaviour {
 
 	Transform ship;
 	public float speed, health;
-	public GameObject laser;
+    public GameObject laser, explosion;
 
 	float firedTime, fireWaitTime, fireRate;
 
 	bool canShoot;
 
+    [FMODUnity.EventRef]
+    public string laserFireSound, explodeSound;
+
+
 	// Use this for initialization
 	void Start () {
 		ship = FindObjectOfType<ShipControl>().transform;
 		fireRate = Random.Range(0.7f, 1.5f);
-		//Egg.enemyNum++;
+        //Egg.enemyNum++;
+
 	}
 	
 	// Update is called once per frame
@@ -48,6 +54,8 @@ public class EnemyShip : MonoBehaviour {
 				firedTime = Time.time;
 				GameObject firedLaser = Instantiate(laser, transform.position, Quaternion.identity);
 				firedLaser.transform.rotation = transform.rotation;
+                FMODUnity.RuntimeManager.PlayOneShot(laserFireSound, transform.position);
+
 			}
 		}
 	}
@@ -61,7 +69,10 @@ public class EnemyShip : MonoBehaviour {
 
 	void Death(){
 		Egg.enemyNum--;
-		Destroy(gameObject);
+        FMODUnity.RuntimeManager.PlayOneShot(explodeSound, transform.position);
+        GameObject explosionInst = Instantiate(explosion, transform.position, Quaternion.identity);
+        Destroy(explosionInst, 1.0f);
+        Destroy(gameObject);
 	}
 
 

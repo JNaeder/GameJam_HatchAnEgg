@@ -119,6 +119,9 @@ MonoBehaviour:
   speed: 2.5
   health: 10
   laser: {fileID: 1231827108885460, guid: 4369adfcd8ecf4970bf2845f32fa4c36, type: 2}
+  explosion: {fileID: 1847478332737680, guid: 6f0a6a466276c3c449d6ae1297b08eda, type: 2}
+  laserFireSound: event:/Enemy Laser Fire
+  explodeSound: event:/Enemy Explode
 --- !u!212 &212212966015689196
 SpriteRenderer:
   m_ObjectHideFlags: 1

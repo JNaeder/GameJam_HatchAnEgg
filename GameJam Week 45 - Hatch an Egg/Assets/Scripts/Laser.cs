@@ -35,12 +35,7 @@ public class Laser : MonoBehaviour {
 			EnemyShip enemy = collision.gameObject.GetComponent<EnemyShip>();
 			enemy.TakeDamage(damage);
         }
-		if (collision.gameObject.tag == "SmallEgg")
-        {
-			SmallEgg smallEgg = collision.gameObject.GetComponent<SmallEgg>();
-			smallEgg.TakeDamage(damage);
-        }
-        
+		        
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)
