@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Egg : MonoBehaviour {
-    public float scaleNum;
+    
 
 	public float health;
 
@@ -76,7 +76,7 @@ public class Egg : MonoBehaviour {
 				movementAnim.Play("Enter_1");
 				InvokeRepeating("SpawnEggs", 0.01f, 1.5f);
 				stage1 = true;
-			}
+            }
 
 		}
 
@@ -91,8 +91,8 @@ public class Egg : MonoBehaviour {
 					isHiding = true;
 					movementAnim.SetBool("isHiding", isHiding);
 					stage2 = true;
-					SpawnEnemies(1);
-					enemyNum = 1;
+					SpawnEnemies(2);
+					enemyNum = 2;
 				}
 			}
 
@@ -124,8 +124,8 @@ public class Egg : MonoBehaviour {
                     isHiding = true;
                     movementAnim.SetBool("isHiding", isHiding);
                     stage3 = true;
-                    SpawnEnemies(2);
-                    enemyNum = 2;
+                    SpawnEnemies(3);
+                    enemyNum = 3;
                 }
             }
 
@@ -158,8 +158,8 @@ public class Egg : MonoBehaviour {
                     isHiding = true;
                     movementAnim.SetBool("isHiding", isHiding);
                     stage4 = true;
-                    SpawnEnemies(3);
-                    enemyNum = 3;
+                    SpawnEnemies(4);
+                    enemyNum = 4;
                 }
             }
 
@@ -192,8 +192,8 @@ public class Egg : MonoBehaviour {
                     movementAnim.SetBool("isHiding", isHiding);
                     enemyAnim.SetInteger("Progress", 2);
                     stage5 = true;
-                    SpawnEnemies(4);
-                    enemyNum = 4;
+                    SpawnEnemies(5);
+                    enemyNum = 5;
                 }
             }
 
@@ -206,7 +206,8 @@ public class Egg : MonoBehaviour {
                     {
                         isHiding = false;
                         movementAnim.SetBool("isHiding", isHiding);
-						InvokeRepeating("SpawnEggs", 0.01f, 0.1f);
+                        InvokeRepeating("SpawnEggs", 0.01f, 0.1f);
+                        
                     }
                 }
             }
@@ -226,8 +227,8 @@ public class Egg : MonoBehaviour {
                     isHiding = true;
                     movementAnim.SetBool("isHiding", isHiding);
                     stage6 = true;
-                    SpawnEnemies(5);
-                    enemyNum = 5;
+                    SpawnEnemies(6);
+                    enemyNum = 6;
                 }
             }
 
@@ -241,7 +242,7 @@ public class Egg : MonoBehaviour {
                         isHiding = false;
                         movementAnim.SetBool("isHiding", isHiding);
 						InvokeRepeating("SpawnEggs", 0.01f, 0.05f);
-                        SpawnEnemies(3);
+                       
                     }
                 }
             }

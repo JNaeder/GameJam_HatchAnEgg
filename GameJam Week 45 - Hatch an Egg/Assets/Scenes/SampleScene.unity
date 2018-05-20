@@ -245,13 +245,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f568d1ed81a1a743b81744200ba7b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleNum: 1.025
   health: 400
   enemySpawnPoints:
-  - {fileID: 1590429157}
-  - {fileID: 1854409116}
   - {fileID: 1383541002}
   - {fileID: 49706912}
+  - {fileID: 1590429157}
+  - {fileID: 1854409116}
   - {fileID: 2005222258}
   - {fileID: 634378579}
   - {fileID: 703543240}
@@ -1309,7 +1308,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemySpawnPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1435,7 +1434,7 @@ GameObject:
   m_Layer: 0
   m_Name: EnemySpawnPoint (1)
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
