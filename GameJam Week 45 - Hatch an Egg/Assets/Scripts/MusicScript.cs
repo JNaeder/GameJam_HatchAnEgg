@@ -17,11 +17,9 @@ public class MusicScript : MonoBehaviour {
         if (musicScript == null)
         {
             musicScript = this;
-            print("This is the one");
         }
         else
         {
-            print("Destroyed Double");
             Destroy(gameObject);
         }
     }
