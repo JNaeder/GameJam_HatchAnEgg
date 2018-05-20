@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class Egg : MonoBehaviour {
-    
+    public GameManager gameManager;
 
 	public float health;
 
@@ -23,6 +24,9 @@ public class Egg : MonoBehaviour {
 	public static int enemyNum;
 	bool isHiding;
 	bool stage1, stage2, stage3, stage4, stage5, stage6;
+
+    [FMODUnity.EventRef]
+    public string eggEnterVO, eggExitVO;
 
 	// Use this for initialization
 	void Start () {
@@ -62,6 +66,7 @@ public class Egg : MonoBehaviour {
 	}
 
 	void Death(){
+        gameManager.WinGame();
 		Destroy(gameObject);
 	}
 
@@ -76,6 +81,7 @@ public class Egg : MonoBehaviour {
 				movementAnim.Play("Enter_1");
 				InvokeRepeating("SpawnEggs", 0.01f, 1.5f);
 				stage1 = true;
+                FMODUnity.RuntimeManager.PlayOneShot(eggEnterVO, transform.position);
             }
 
 		}
@@ -89,7 +95,8 @@ public class Egg : MonoBehaviour {
 				{
 					CancelInvoke();
 					isHiding = true;
-					movementAnim.SetBool("isHiding", isHiding);
+                    FMODUnity.RuntimeManager.PlayOneShot(eggExitVO, transform.position);
+                    movementAnim.SetBool("isHiding", isHiding);
 					stage2 = true;
 					SpawnEnemies(2);
 					enemyNum = 2;
@@ -102,9 +109,9 @@ public class Egg : MonoBehaviour {
 				if (enemyNum == 0)
 				{
 					if (isHiding)
-					{       
-
-						isHiding = false;
+					{
+                        FMODUnity.RuntimeManager.PlayOneShot(eggEnterVO, transform.position);
+                        isHiding = false;
 						movementAnim.SetBool("isHiding", isHiding);
 						InvokeRepeating("SpawnEggs", 0.01f, 1f);
 					}
@@ -122,6 +129,7 @@ public class Egg : MonoBehaviour {
                     enemyAnim.SetInteger("Progress", 1);
                     CancelInvoke();
                     isHiding = true;
+                    FMODUnity.RuntimeManager.PlayOneShot(eggExitVO, transform.position);
                     movementAnim.SetBool("isHiding", isHiding);
                     stage3 = true;
                     SpawnEnemies(3);
@@ -136,7 +144,7 @@ public class Egg : MonoBehaviour {
                 {
                     if (isHiding)
                     {
-						CancelInvoke();
+                        FMODUnity.RuntimeManager.PlayOneShot(eggEnterVO, transform.position);
                         isHiding = false;
                         movementAnim.SetBool("isHiding", isHiding);
                         InvokeRepeating("SpawnEggs", 0.01f, .5f);
@@ -156,6 +164,7 @@ public class Egg : MonoBehaviour {
                 {
 					CancelInvoke();
                     isHiding = true;
+                    FMODUnity.RuntimeManager.PlayOneShot(eggExitVO, transform.position);
                     movementAnim.SetBool("isHiding", isHiding);
                     stage4 = true;
                     SpawnEnemies(4);
@@ -170,6 +179,7 @@ public class Egg : MonoBehaviour {
                 {
                     if (isHiding)
                     {
+                        FMODUnity.RuntimeManager.PlayOneShot(eggEnterVO, transform.position);
                         isHiding = false;
                         movementAnim.SetBool("isHiding", isHiding);
 						InvokeRepeating("SpawnEggs", 0.01f, .25f);
@@ -189,6 +199,7 @@ public class Egg : MonoBehaviour {
                 {
 					CancelInvoke();
                     isHiding = true;
+                    FMODUnity.RuntimeManager.PlayOneShot(eggExitVO, transform.position);
                     movementAnim.SetBool("isHiding", isHiding);
                     enemyAnim.SetInteger("Progress", 2);
                     stage5 = true;
@@ -204,6 +215,7 @@ public class Egg : MonoBehaviour {
                 {
                     if (isHiding)
                     {
+                        FMODUnity.RuntimeManager.PlayOneShot(eggEnterVO, transform.position);
                         isHiding = false;
                         movementAnim.SetBool("isHiding", isHiding);
                         InvokeRepeating("SpawnEggs", 0.01f, 0.1f);
@@ -225,6 +237,7 @@ public class Egg : MonoBehaviour {
                 {
 					CancelInvoke();
                     isHiding = true;
+                    FMODUnity.RuntimeManager.PlayOneShot(eggExitVO, transform.position);
                     movementAnim.SetBool("isHiding", isHiding);
                     stage6 = true;
                     SpawnEnemies(6);
@@ -239,9 +252,10 @@ public class Egg : MonoBehaviour {
                 {
                     if (isHiding)
                     {
+                        FMODUnity.RuntimeManager.PlayOneShot(eggEnterVO, transform.position);
                         isHiding = false;
                         movementAnim.SetBool("isHiding", isHiding);
-						InvokeRepeating("SpawnEggs", 0.01f, 0.05f);
+						InvokeRepeating("SpawnEggs", 0.01f, 0.01f);
                        
                     }
                 }

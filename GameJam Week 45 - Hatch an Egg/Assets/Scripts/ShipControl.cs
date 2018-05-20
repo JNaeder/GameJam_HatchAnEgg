@@ -6,6 +6,8 @@ using FMODUnity;
 
 public class ShipControl : MonoBehaviour {
 
+    public GameManager gameManager;
+
     public float speed;
     public float fireRate;
 	public float health;
@@ -23,8 +25,10 @@ public class ShipControl : MonoBehaviour {
 
     float firedTime, fireWaitTime;
 
+    Animator anim;
+
     [FMODUnity.EventRef]
-    public string fireLaserSound, shootingChargeSound;
+    public string fireLaserSound, shootingChargeSound, playerHitSound;
 
     FMOD.Studio.EventInstance chargingSound;
 
@@ -41,6 +45,8 @@ public class ShipControl : MonoBehaviour {
 		startHealthBarSize = healthBar.transform.localScale.x;
         newHealthBarSize = healthBarSize.x;
         healthRatio = health / startHealth;
+
+        anim = GetComponent<Animator>();
 
         chargingSound = FMODUnity.RuntimeManager.CreateInstance(shootingChargeSound);
         chargingSound.setParameterValue("isShooting", 0);
@@ -133,6 +139,8 @@ public class ShipControl : MonoBehaviour {
 			health -= damage;
 			healthRatio = health / startHealth;
 			newHealthBarSize = healthBarSize.x * healthRatio;
+            FMODUnity.RuntimeManager.PlayOneShot(playerHitSound, transform.position);
+            anim.Play("Hit");
 		}
 
 		if(health <= 0){
@@ -142,7 +150,9 @@ public class ShipControl : MonoBehaviour {
 
 
 	void Death(){
+        gameManager.LoseGame();
 		print("Game Over!");
+        Destroy(gameObject);
 	}
 
 

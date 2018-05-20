@@ -27,10 +27,13 @@ public class EnemyShip : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		LookAtPlayer();
-		transform.Translate(Vector3.up * Time.deltaTime * speed, Space.Self);
+        if (ship != null)
+        {
+            LookAtPlayer();
+            transform.Translate(Vector3.up * Time.deltaTime * speed, Space.Self);
 
-		Shoot();
+            Shoot();
+        }
 	}
 
 

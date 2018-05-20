@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{5bd967ba-6607-4a87-bcc6-ed2a10af066c}">
+        <property name="assetPath">
+            <value>VOs/EggBoss_VO_03.ogg</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>3.8435374149659864</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{aa8cc8b3-9857-4066-9d58-83c686bbc1c9}</destination>
+        </relationship>
+    </object>
+</objects>
