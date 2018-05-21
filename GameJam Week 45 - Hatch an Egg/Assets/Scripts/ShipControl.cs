@@ -88,7 +88,16 @@ public class ShipControl : MonoBehaviour {
         shootCapScale.x = newShootChargeSize;
         shootingChargeMeter.transform.localScale = shootCapScale;
         chargingSound.setParameterValue("ChargeRatio", shootChargeRatio);
-	}
+
+
+        if (GameManager.isPaused == true) {
+            chargingSound.setPaused(true);
+        }
+        if (GameManager.isPaused == false)
+        {
+            chargingSound.setPaused(false);
+        }
+    }
 	void AdjustHealthBar()
     {
         Vector3 localScale = healthBar.transform.localScale;
