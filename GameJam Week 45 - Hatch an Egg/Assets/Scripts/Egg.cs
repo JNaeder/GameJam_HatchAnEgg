@@ -21,15 +21,21 @@ public class Egg : MonoBehaviour {
 
 	public Animator movementAnim, enemyAnim;
 
+	SpriteRenderer sP;
+	public Sprite hatchedEggSprite, crackedEgg_1, crackedEgg_2;
+	public GameObject finalExplosion;
+
 	public static int enemyNum;
-	bool isHiding;
+	bool isHiding, isDead;
 	bool stage1, stage2, stage3, stage4, stage5, stage6;
 
     [FMODUnity.EventRef]
-    public string eggEnterVO, eggExitVO;
+    public string eggEnterVO, eggExitVO, explosionSound;
 
 	// Use this for initialization
 	void Start () {
+		sP = GetComponent<SpriteRenderer>();
+
 		startHealth = health;
 
 		healthBarSize = healthBar.transform.localScale;
@@ -50,10 +56,13 @@ public class Egg : MonoBehaviour {
 
 
 	public void TakeDamage(int damage){
-		health -= damage;
-		healthRatio = health / startHealth;
-		newHealthBarSize = healthBarSize.x * healthRatio;
-        enemyAnim.Play("Hit");
+		if (!isDead)
+		{
+			health -= damage;
+			healthRatio = health / startHealth;
+			newHealthBarSize = healthBarSize.x * healthRatio;
+			enemyAnim.Play("Hit");
+		}
 
 
 	}
@@ -66,8 +75,15 @@ public class Egg : MonoBehaviour {
 	}
 
 	void Death(){
+		CancelInvoke();
+		isDead = true;
+		enemyAnim.Play("Still");
+		FMODUnity.RuntimeManager.PlayOneShot(explosionSound, transform.position);
+		sP.sprite = hatchedEggSprite;
+		Vector3 explosionPos = new Vector3(transform.position.x, transform.position.y, -10);
+		GameObject eggsplosion = Instantiate(finalExplosion, explosionPos, Quaternion.identity);
+		Destroy(eggsplosion, 5f);
         gameManager.WinGame();
-		Destroy(gameObject);
 	}
 
 
@@ -126,6 +142,7 @@ public class Egg : MonoBehaviour {
             {
                 if (!isHiding)
                 {
+					sP.sprite = crackedEgg_1;
                     enemyAnim.SetInteger("Progress", 1);
                     CancelInvoke();
                     isHiding = true;
@@ -201,6 +218,7 @@ public class Egg : MonoBehaviour {
                     isHiding = true;
                     FMODUnity.RuntimeManager.PlayOneShot(eggExitVO, transform.position);
                     movementAnim.SetBool("isHiding", isHiding);
+					sP.sprite = crackedEgg_2;
                     enemyAnim.SetInteger("Progress", 2);
                     stage5 = true;
                     SpawnEnemies(5);
@@ -266,7 +284,10 @@ public class Egg : MonoBehaviour {
 		//Stage 7
         if (healthRatio <= 0)
         {
-            Death();
+			if (!isDead)
+			{
+				Death();
+			}
 
         }
 

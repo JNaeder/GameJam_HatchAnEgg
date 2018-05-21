@@ -30,6 +30,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1468264375110314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4869471052648278}
+  m_Layer: 11
+  m_Name: Nozzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4541309282232892
 Transform:
   m_ObjectHideFlags: 1
@@ -39,10 +54,24 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: -9.1, y: 15.7, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4869471052648278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!4 &4869471052648278
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468264375110314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.02, y: 1.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4541309282232892}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50761169424804034
 Rigidbody2D:
   serializedVersion: 4
@@ -87,24 +116,44 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.7682781, y: 0.11379528}
-      - {x: 0.7439089, y: -0.22938442}
-      - {x: 0.5698271, y: -0.21410656}
-      - {x: 0.28380585, y: 0.2912054}
-      - {x: 0.1438675, y: 0.88207436}
-      - {x: -0.106720924, y: 0.881485}
-      - {x: -0.2214346, y: 0.23763084}
-      - {x: -0.46240807, y: -0.20160484}
-      - {x: -0.68236923, y: -0.2077589}
-      - {x: -0.67926025, y: 0.11440468}
-      - {x: -0.8349085, y: 0.11910343}
-      - {x: -0.875, y: -0.20814133}
-      - {x: -0.975235, y: -0.22287941}
-      - {x: -0.97496223, y: -0.75313663}
-      - {x: 0.975235, y: -0.76297283}
-      - {x: 0.98152924, y: -0.23975277}
-      - {x: 0.91332436, y: -0.191041}
-      - {x: 0.90035343, y: 0.1196928}
+    - - {x: 1.8907337, y: -0.50000066}
+      - {x: 1.7971281, y: -0.28117818}
+      - {x: 1.6875, y: 0.03125}
+      - {x: 1.656105, y: -0.0155893965}
+      - {x: 1.6331813, y: -0.36919212}
+      - {x: 1.4530163, y: -0.6092676}
+      - {x: 1.0327747, y: -0.5762908}
+      - {x: 0.71925676, y: -0.0784518}
+      - {x: 0.52781934, y: 0.44274902}
+      - {x: 0.5158062, y: 0.79683876}
+      - {x: 0.46896744, y: 1.78125}
+      - {x: 0.26566124, y: 1.906395}
+      - {x: -0.015660604, y: 1.8752174}
+      - {x: -0.23462868, y: 1.6720562}
+      - {x: -0.31264496, y: 1.1403713}
+      - {x: -0.40323448, y: 0.61520326}
+      - {x: -0.6250725, y: -0.03117752}
+      - {x: -0.81257284, y: -0.24985568}
+      - {x: -0.97514, y: -0.50624275}
+      - {x: -1.2808855, y: -0.568491}
+      - {x: -1.5153713, y: -0.49992818}
+      - {x: -1.6459856, y: -0.29021138}
+      - {x: -1.7029442, y: 0.07845116}
+      - {x: -1.9063219, y: -0.42118645}
+      - {x: -1.8751444, y: -0.7969837}
+      - {x: -1.643506, y: -0.9558913}
+      - {x: -1.3286676, y: -1.0625744}
+      - {x: -0.95867413, y: -1.0808519}
+      - {x: -0.8281619, y: -1.3438944}
+      - {x: -0.53125, y: -1.6407337}
+      - {x: -0.2032331, y: -1.7813957}
+      - {x: 0.10510318, y: -1.7861843}
+      - {x: 0.43081984, y: -1.7368412}
+      - {x: 0.6869208, y: -1.5475636}
+      - {x: 0.98888654, y: -1.1645172}
+      - {x: 1.1405888, y: -1.1565406}
+      - {x: 1.7033062, y: -1.0002182}
+      - {x: 1.8439674, y: -0.79698503}
 --- !u!114 &114588653618953200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,6 +169,7 @@ MonoBehaviour:
   health: 10
   laser: {fileID: 1231827108885460, guid: 4369adfcd8ecf4970bf2845f32fa4c36, type: 2}
   explosion: {fileID: 1847478332737680, guid: 6f0a6a466276c3c449d6ae1297b08eda, type: 2}
+  nozzle: {fileID: 4869471052648278}
   laserFireSound: event:/Enemy Laser Fire
   explodeSound: event:/Enemy Explode
 --- !u!212 &212212966015689196

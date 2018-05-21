@@ -8,6 +8,7 @@ public class EnemyShip : MonoBehaviour {
 	Transform ship;
 	public float speed, health;
     public GameObject laser, explosion;
+	public Transform nozzle;
 
 	float firedTime, fireWaitTime, fireRate;
 
@@ -55,7 +56,7 @@ public class EnemyShip : MonoBehaviour {
 			if (Time.time >= firedTime + fireWaitTime)
 			{
 				firedTime = Time.time;
-				GameObject firedLaser = Instantiate(laser, transform.position, Quaternion.identity);
+				GameObject firedLaser = Instantiate(laser, nozzle.position, Quaternion.identity);
 				firedLaser.transform.rotation = transform.rotation;
                 FMODUnity.RuntimeManager.PlayOneShot(laserFireSound, transform.position);
 

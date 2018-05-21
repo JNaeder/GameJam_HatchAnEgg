@@ -13,12 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: C:\Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week
-    45 - Hatch an Egg FMOD\GameJam Week 45 - Hatch an Egg FMOD.fspro
-  SourceProjectPathUnformatted: C:\Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam
-    Week 45 - Hatch an Egg FMOD\GameJam Week 45 - Hatch an Egg FMOD.fspro
-  SourceBankPathUnformatted: C:\Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam
-    Week 45 - Hatch an Egg FMOD\Build
+  sourceProjectPath: /Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week
+    45 - Hatch an Egg FMOD/GameJam Week 45 - Hatch an Egg FMOD.fspro
+  SourceProjectPathUnformatted: /Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam
+    Week 45 - Hatch an Egg FMOD/GameJam Week 45 - Hatch an Egg FMOD.fspro
+  SourceBankPathUnformatted: /Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam
+    Week 45 - Hatch an Egg FMOD/Build
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0

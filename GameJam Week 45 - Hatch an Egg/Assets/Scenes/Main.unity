@@ -377,8 +377,14 @@ MonoBehaviour:
   healthBar: {fileID: 1527011327}
   movementAnim: {fileID: 161692675}
   enemyAnim: {fileID: 712627587}
+  hatchedEggSprite: {fileID: 21300000, guid: 1be6a276f0e2d48dab111caf0c94b2cf, type: 3}
+  crackedEgg_1: {fileID: 21300000, guid: b54dc9cf1ae51414a80d227d4205ab7e, type: 3}
+  crackedEgg_2: {fileID: 21300000, guid: 259ba6be16219407792cfdb3bedbf427, type: 3}
+  finalExplosion: {fileID: 1693413050687376, guid: e0bcf8162353e438eb0d2c84b3d2c46c,
+    type: 2}
   eggEnterVO: event:/EggBoss EnterVO
   eggExitVO: event:/EggBossExitVO
+  explosionSound: event:/Enemy Explode
 --- !u!1 &14997220
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,7 +823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -160, y: -187}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &87132851
@@ -939,7 +945,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000061035156, y: -47}
+  m_AnchoredPosition: {x: 116, y: -187}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &101532825
@@ -1059,8 +1065,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7, y: 33.5}
-  m_SizeDelta: {x: 185.4, y: 259}
+  m_AnchoredPosition: {x: -28.5, y: -131.1}
+  m_SizeDelta: {x: 519.1, y: 161.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &161242399
 MonoBehaviour:
@@ -3196,8 +3202,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 86.8}
-  m_SizeDelta: {x: 160, y: 127.8}
+  m_AnchoredPosition: {x: -27.3, y: -111.07}
+  m_SizeDelta: {x: 489.1, y: 121.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1700369631
 MonoBehaviour:
@@ -3231,7 +3237,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You Win!
+  m_Text: egg-cellent! You Win!
 --- !u!222 &1700369632
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3550,7 +3556,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1986589529}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.62, y: -0.03, z: 0}
+  m_LocalPosition: {x: -0.62, y: -0.03, z: 207.73}
   m_LocalScale: {x: 56.602406, y: 44.30438, z: 13.297664}
   m_Children: []
   m_Father: {fileID: 0}
