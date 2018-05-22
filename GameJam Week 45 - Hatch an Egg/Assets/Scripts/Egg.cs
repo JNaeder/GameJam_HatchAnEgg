@@ -9,6 +9,8 @@ public class Egg : MonoBehaviour {
 
 	public float health;
 
+	public float[] healthRatioStages;
+
 	public Transform[] enemySpawnPoints;
 	public GameObject enemy, smallEgg;
 
@@ -50,7 +52,7 @@ public class Egg : MonoBehaviour {
 	void Update () {
 		AdjustHealthBar();
 		BossStages();
-
+		//print("Enemy Num is " + enemyNum);
 
 	}
 
@@ -103,7 +105,7 @@ public class Egg : MonoBehaviour {
 		}
 
         //Stage 2
-		if (healthRatio <= 0.80f)
+		if (healthRatio <= healthRatioStages[0])
         {
 			if (!stage2)
 			{
@@ -136,7 +138,7 @@ public class Egg : MonoBehaviour {
         }
 
         //Stage 3
-		if (healthRatio <= 0.60f)
+		if (healthRatio <= healthRatioStages[1])
         {
 			if (!stage3)
             {
@@ -173,7 +175,7 @@ public class Egg : MonoBehaviour {
 
 
         //Stage 4
-		if (healthRatio <= 0.45f)
+		if (healthRatio <= healthRatioStages[2])
         {
 			if (!stage4)
             {
@@ -208,7 +210,7 @@ public class Egg : MonoBehaviour {
 
 
         //Stage 5
-		if (healthRatio <= 0.35f)
+		if (healthRatio <= healthRatioStages[3])
         {
 			if (!stage5)
             {
@@ -246,7 +248,7 @@ public class Egg : MonoBehaviour {
 
 
         //Stage 6
-		if (healthRatio <= 0.10f)
+		if (healthRatio <= healthRatioStages[4])
         {
             
 			if (!stage6)
@@ -297,8 +299,9 @@ public class Egg : MonoBehaviour {
 
 
 	void SpawnEnemies(int numberOfEnemies){
-
+		
 		for (int i = 0; i < numberOfEnemies; i++){
+			//int randomSpawnPoint = Random.Range(0, enemySpawnPoints.Length);
 			Instantiate(enemy, enemySpawnPoints[i].position, Quaternion.identity);
 		}
 	}

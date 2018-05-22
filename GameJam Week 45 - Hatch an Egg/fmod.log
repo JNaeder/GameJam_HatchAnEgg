@@ -1,15 +1,17 @@
 [LOG] System::create                           : Header version = 1.10.05. Current version = 1.10.05.
-[LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
-[LOG] Manager::init                            : maxchannels = 1024 studioflags = 00000009 flags 00000000 extradriverdata 0000000000000000.
+[LOG] SystemI::setOutputInternal               : Setting output to 'FMOD Core Audio Output'
+[LOG] Manager::init                            : maxchannels = 1024 studioflags = 00000009 flags 00000000 extradriverdata 0x0.
 [LOG] SystemI::init                            : Initialize version=11005 (94661), maxchannels=1024, flags=0x00030000
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=44100, nAvgBytesPerSec=352800, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 3760 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
-[WRN] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
+[LOG] OutputCoreAudio::enumerate               : Enumerating...
+[LOG] OutputCoreAudio::enumerate               : Found output driver: "Built-in Output".
+[LOG] OutputCoreAudio::enumerate               : Found output driver: "Avid Fast Track Duo".
+[LOG] OutputCoreAudio::enumerate               : Done.
+[LOG] OutputCoreAudio::init                    : Output running 2 channels at 48000Hz sample rate.
+[LOG] OutputCoreAudio::init                    : Maximum hardware read size: 1024 samples, Software buffer size: 512 samples, Number of software buffers: 4.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000000004E3A6428 isAsync 1 updatePeriod 0.02
+[LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
+[LOG] AsyncManager::init                       : manager 0x159aec408 isAsync 1 updatePeriod 0.02
 [LOG] Thread::initThread                       : Init FMOD Studio update thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
@@ -19,1067 +21,379 @@
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
 [LOG] Profile::init                            : Profiler listening on port: 9264
-[LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
-[LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 3
-[LOG] SystemI::createSound                     : filename = \Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Priority: 1, Stack Size: 81920, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] SystemI::createSound                     : setdata soundi = 00000000341E5CD8 : node = 00000000347D7670
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000042AAF448.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000341E5CD8
-[LOG] SystemI::createSoundInternal             :     Create name='\Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000347D7788
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='CosmicEggTheme_Bounce1', format=2, channels=2, frequency=48000, lengthbytes=573920, lengthpcm=2048000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] Thread::initThread                       :     Init FMOD file thread. Priority: 1, Stack Size: 16384, Semaphore: No, Sleep Time: 10, Looping: Yes.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000341E5CD8
-[LOG] SoundI::getSubSound                      : sound 00000000341E5CD8.  Subsound index 0 / 1
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] Thread::initThread                       : Init FMOD profiler thread (recv). Priority: 0, Stack Size: 131072, Semaphore: No, Sleep Time: 0, Looping: No.
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420945D8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x142faa7d8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] Thread::initThread                       : Init FMOD profiler thread (send). Priority: 0, Stack Size: 131072, Semaphore: No, Sleep Time: 0, Looping: No.
+[LOG] LiveUpdate::clientConnected              : client = 0x110d2e208
+[LOG] LiveUpdate::readPacket                   : Accepting init message for client 0x110d2e208
+[LOG] LiveUpdate::transitionToConnected        : 
+[LOG] Manager::sendConnectTimeHash             : 
+[LOG] LiveUpdate::sendBankHash                 : 
+[LOG] LiveUpdate::sendBankHash                 : 
+[LOG] LiveUpdate::sendBankHash                 : 
+[LOG] LiveUpdate::acceptInitPacket             : Client 0x110d2e208 connected, entering connected state
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_02', format=2, channels=2, frequency=48000, lengthbytes=53472, lengthpcm=174163, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420945D8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x142faa7d8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='PowerUpLoop', format=2, channels=2, frequency=48000, lengthbytes=26592, lengthpcm=237884, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.867462.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420945D8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x142faa7d8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_05', format=2, channels=2, frequency=48000, lengthbytes=54496, lengthpcm=178341, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420945D8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x142faa7d8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_03', format=2, channels=2, frequency=48000, lengthbytes=56480, lengthpcm=184489, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420945D8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x142faa7d8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_04', format=2, channels=2, frequency=48000, lengthbytes=50176, lengthpcm=169996, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420945D8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x142faa7d8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_01', format=2, channels=2, frequency=48000, lengthbytes=66464, lengthpcm=202807, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote//Users/John/Library/Application Support/FMOD Studio/UnsavedProjects/Hotswap-U5kSJ8/hotswap_589.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Library/Application Support/FMOD Studio/UnsavedProjects/Hotswap-U5kSJ8/hotswap_589.bank'
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
+[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote//Users/John/Library/Application Support/FMOD Studio/UnsavedProjects/Hotswap-U5kSJ8/hotswap_590.bank
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Library/Application Support/FMOD Studio/UnsavedProjects/Hotswap-U5kSJ8/hotswap_590.bank'
+[LOG] Manager::readBank                        : fileversion = 100, compatVersion = 99 (oldest = 44, newest = 100)
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042093F78
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x146fecf88
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Player_Laser_2', format=2, channels=1, frequency=48000, lengthbytes=2848, lengthpcm=18120, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.794250.
-[LOG] SoundI::release                          :  (00000000426EBC78)
-[LOG] SoundI::release                          :     EggBoss_VO_01 (0000000042AAF158)
+[LOG] SoundI::release                          :  (0x146fb9018)
+[LOG] SoundI::release                          :     Player_Laser_2 (0x146fee798)
+[LOG] SoundI::release                          :  (0x142ff8208)
+[LOG] SoundI::release                          :     EggBoss_VO_01 (0x142fd7f18)
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D16D8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_06', format=2, channels=2, frequency=48000, lengthbytes=47328, lengthpcm=161474, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D16D8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_07', format=2, channels=2, frequency=48000, lengthbytes=44032, lengthpcm=144897, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.967163.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042093F78
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Laser_Fire_1', format=2, channels=1, frequency=48000, lengthbytes=6720, lengthpcm=38064, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.939453.
-[LOG] SoundI::release                          :  (00000000426ED098)
-[LOG] SoundI::release                          :     EggBoss_VO_02 (0000000042AAF7D8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042094A18
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_1', format=2, channels=1, frequency=48000, lengthbytes=6912, lengthpcm=39976, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042094A18
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_3', format=2, channels=2, frequency=48000, lengthbytes=36320, lengthpcm=155040, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.977844.
-[LOG] SoundI::release                          :  (00000000426EC968)
-[LOG] SoundI::release                          :     EggBoss_VO_03 (0000000042AAEFB8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004202D9D8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_02', format=2, channels=2, frequency=48000, lengthbytes=53472, lengthpcm=174163, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004202D9D8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_03', format=2, channels=2, frequency=48000, lengthbytes=56480, lengthpcm=184489, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004202D9D8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_01', format=2, channels=2, frequency=48000, lengthbytes=66464, lengthpcm=202807, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SoundI::release                          :  (00000000426ED208)
-[LOG] SoundI::release                          :     EggBoss_VO_06 (0000000042AAF158)
-[LOG] SoundI::release                          :  (00000000426EC238)
-[LOG] SoundI::release                          :     EggBoss_VO_07 (000000004E3D9D68)
-[LOG] SoundI::release                          :  (00000000426EBDE8)
-[LOG] SoundI::release                          :     Enemy_Laser_Fire_1 (000000004E3D96E8)
-[LOG] SoundI::release                          :  (00000000426EC3A8)
-[LOG] SoundI::release                          :     Enemy_Explode_3 (000000004E3D8EC8)
-[LOG] SoundI::release                          :  (00000000426EB998)
-[LOG] SoundI::release                          :     Enemy_Explode_1 (000000004E3DA0A8)
-[LOG] SoundI::release                          :  (00000000426ECC48)
-[LOG] SoundI::release                          :     EggBoss_VO_01 (000000004E3D9BC8)
-[LOG] SystemI::createSound                     : filename = \Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 00000000341E6038 : node = 00000000347D7E50
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000042AAF448.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000341E6038
-[LOG] SystemI::createSoundInternal             :     Create name='\Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000347D7F68
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='CosmicEggTheme_Bounce1', format=2, channels=2, frequency=48000, lengthbytes=573920, lengthpcm=2048000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000341E6038
-[LOG] SoundI::getSubSound                      : sound 00000000341E6038.  Subsound index 0 / 1
-[LOG] SoundI::release                          : CosmicEggTheme_Bounce1 (00000000341E5CD8)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (0000000042AB0198)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (00000000341E6DB8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E1B5FA8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_06', format=2, channels=2, frequency=48000, lengthbytes=47328, lengthpcm=161474, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E1B5FA8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_07', format=2, channels=2, frequency=48000, lengthbytes=44032, lengthpcm=144897, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.967163.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D1F58
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Laser_Fire_1', format=2, channels=1, frequency=48000, lengthbytes=6720, lengthpcm=38064, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.939453.
-[LOG] SoundI::release                          :  (00000000426EBF58)
-[LOG] SoundI::release                          :     EggBoss_VO_02 (000000004E3D9888)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042494898
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_1', format=2, channels=1, frequency=48000, lengthbytes=6912, lengthpcm=39976, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042494898
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_3', format=2, channels=2, frequency=48000, lengthbytes=36320, lengthpcm=155040, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.977844.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042945858
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_02', format=2, channels=2, frequency=48000, lengthbytes=53472, lengthpcm=174163, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042945858
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_01', format=2, channels=2, frequency=48000, lengthbytes=66464, lengthpcm=202807, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SoundI::release                          :  (00000000426ED378)
-[LOG] SoundI::release                          :     EggBoss_VO_06 (000000004E3D9BC8)
-[LOG] SoundI::release                          :  (00000000426ED098)
-[LOG] SoundI::release                          :     EggBoss_VO_07 (000000004E3D9548)
-[LOG] SoundI::release                          :  (00000000426ECC48)
-[LOG] SoundI::release                          :     Enemy_Laser_Fire_1 (000000004E3D9D68)
-[LOG] SoundI::release                          :  (00000000426EB548)
-[LOG] SoundI::release                          :     Enemy_Explode_3 (000000004E3DA3E8)
-[LOG] SoundI::release                          :  (00000000426ED208)
-[LOG] SoundI::release                          :     Enemy_Explode_1 (000000004E3D8848)
-[LOG] SoundI::release                          :  (00000000426ECAD8)
-[LOG] SoundI::release                          :     Player_Laser_2 (0000000042AAFB18)
-[LOG] SoundI::release                          :  (00000000426EB828)
-[LOG] SoundI::release                          :     EggBoss_VO_01 (000000004E3D93A8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420945D8
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x13ce80c08
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Player_Laser_2', format=2, channels=1, frequency=48000, lengthbytes=2848, lengthpcm=18120, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.794250.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/VOs/EggBoss_VO_06.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042094A18
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_06', format=2, channels=2, frequency=48000, lengthbytes=47328, lengthpcm=161474, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/VOs/EggBoss_VO_06.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=44100, lengthbytes=73617, lengthpcm=148355, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/VOs/EggBoss_VO_07.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042094A18
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_07', format=2, channels=2, frequency=48000, lengthbytes=44032, lengthpcm=144897, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.967163.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/VOs/EggBoss_VO_07.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=44100, lengthbytes=67175, lengthpcm=133125, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Laser_Fire_1.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E1B6E88
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Laser_Fire_1', format=2, channels=1, frequency=48000, lengthbytes=6720, lengthpcm=38064, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.939453.
-[LOG] SoundI::release                          :  (00000000426EB6B8)
-[LOG] SoundI::release                          :     EggBoss_VO_02 (000000004E3D96E8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Laser_Fire_1.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=1, frequency=44100, lengthbytes=11682, lengthpcm=34972, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
+[LOG] SoundI::release                          :  (0x142fdca78)
+[LOG] SoundI::release                          :     EggBoss_VO_02 (0x142f98e98)
+[LOG] SoundI::release                          :  (0x142f863e8)
+[LOG] SoundI::release                          :     EggBoss_VO_03 (0x142fbdc98)
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Explode_3.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E1B2208
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_1', format=2, channels=1, frequency=48000, lengthbytes=6912, lengthpcm=39976, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Explode_3.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=48000, lengthbytes=54771, lengthpcm=155040, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Explode_1.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E1B2208
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_3', format=2, channels=2, frequency=48000, lengthbytes=36320, lengthpcm=155040, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.977844.
-[LOG] SystemI::createSound                     : filename = \Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 00000000341E72C8 : node = 00000000347D9200
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000042AAF448.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000341E72C8
-[LOG] SystemI::createSoundInternal             :     Create name='\Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000347D9318
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='CosmicEggTheme_Bounce1', format=2, channels=2, frequency=48000, lengthbytes=573920, lengthpcm=2048000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000341E72C8
-[LOG] SoundI::getSubSound                      : sound 00000000341E72C8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : CosmicEggTheme_Bounce1 (00000000341E6038)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (000000004E3D9208)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (00000000341E6C08)
-[LOG] SoundI::release                          :  (00000000426EC968)
-[LOG] SoundI::release                          :     EggBoss_VO_03 (000000004E3D9068)
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Explode_1.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=1, frequency=44100, lengthbytes=11981, lengthpcm=36728, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
+[LOG] SoundI::release                          :  (0x142ff6be8)
+[LOG] SoundI::release                          :     EggBoss_VO_04 (0x142fc65c8)
+[LOG] SoundI::release                          :  (0x142f99be8)
+[LOG] SoundI::release                          :     EggBoss_VO_05 (0x142fbb408)
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D1B18
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x13adb2cb8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_02', format=2, channels=2, frequency=48000, lengthbytes=53472, lengthpcm=174163, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D1B18
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x13adb2cb8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_05', format=2, channels=2, frequency=48000, lengthbytes=54496, lengthpcm=178341, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x13adb2cb8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_03', format=2, channels=2, frequency=48000, lengthbytes=56480, lengthpcm=184489, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D1B18
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x13adb2cb8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_04', format=2, channels=2, frequency=48000, lengthbytes=50176, lengthpcm=169996, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x13adb2cb8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_01', format=2, channels=2, frequency=48000, lengthbytes=66464, lengthpcm=202807, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SoundI::release                          :  (00000000426EC0C8)
-[LOG] SoundI::release                          :     EggBoss_VO_06 (000000004E3D9888)
-[LOG] SoundI::release                          :  (00000000426EC3A8)
-[LOG] SoundI::release                          :     EggBoss_VO_07 (000000004E3D9D68)
-[LOG] SoundI::release                          :  (00000000426EB998)
-[LOG] SoundI::release                          :     Enemy_Laser_Fire_1 (000000004E3D86A8)
-[LOG] SoundI::release                          :  (00000000426ED208)
-[LOG] SoundI::release                          :     Enemy_Explode_3 (000000004E3D8848)
-[LOG] SoundI::release                          :  (00000000426EB6B8)
-[LOG] SoundI::release                          :     Enemy_Explode_1 (000000004E3D96E8)
-[LOG] SoundI::release                          :  (00000000426EB548)
-[LOG] SoundI::release                          :     EggBoss_VO_01 (000000004E3D9BC8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SoundI::release                          : EggBoss_VO_06.ogg (0x142f662c8)
+[LOG] SoundI::release                          : EggBoss_VO_07.ogg (0x146fb6ed8)
+[LOG] SoundI::release                          : Enemy_Laser_Fire_1.ogg (0x1452d4d78)
+[LOG] SoundI::release                          : Enemy_Explode_3.ogg (0x142f98e98)
+[LOG] SoundI::release                          : Enemy_Explode_1.ogg (0x1452be298)
+[LOG] SoundI::release                          :  (0x13ce0aa28)
+[LOG] SoundI::release                          :     EggBoss_VO_01 (0x13ce14728)
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/VOs/EggBoss_VO_06.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D0C38
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_06', format=2, channels=2, frequency=48000, lengthbytes=47328, lengthpcm=161474, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/VOs/EggBoss_VO_06.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=44100, lengthbytes=73617, lengthpcm=148355, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/VOs/EggBoss_VO_07.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D0C38
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_07', format=2, channels=2, frequency=48000, lengthbytes=44032, lengthpcm=144897, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.967163.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/VOs/EggBoss_VO_07.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=44100, lengthbytes=67175, lengthpcm=133125, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Laser_Fire_1.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042B97E68
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Laser_Fire_1', format=2, channels=1, frequency=48000, lengthbytes=6720, lengthpcm=38064, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.939453.
-[LOG] SoundI::release                          :  (00000000426ED378)
-[LOG] SoundI::release                          :     EggBoss_VO_02 (000000004E3D8B88)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Laser_Fire_1.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=1, frequency=44100, lengthbytes=11682, lengthpcm=34972, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
+[LOG] SoundI::release                          :  (0x13ce0c1a8)
+[LOG] SoundI::release                          :     EggBoss_VO_02 (0x13ce30f38)
+[LOG] SoundI::release                          :  (0x13ce62c68)
+[LOG] SoundI::release                          :     EggBoss_VO_03 (0x13ce20d18)
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Explode_3.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042B982A8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_1', format=2, channels=1, frequency=48000, lengthbytes=6912, lengthpcm=39976, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Explode_3.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=48000, lengthbytes=54771, lengthpcm=155040, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
+[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote//Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Explode_1.ogg', mode=0x0200C202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042B982A8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_3', format=2, channels=2, frequency=48000, lengthbytes=36320, lengthpcm=155040, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.977844.
-[LOG] SoundI::release                          :  (00000000426EB828)
-[LOG] SoundI::release                          :     EggBoss_VO_03 (000000004E3D9548)
+[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file '/Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an Egg FMOD/Assets/Enemy_Explode_1.ogg'
+[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=1, frequency=44100, lengthbytes=11981, lengthpcm=36728, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E83DD38
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x13ceaab68
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_02', format=2, channels=2, frequency=48000, lengthbytes=53472, lengthpcm=174163, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E83DD38
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x13ceaab68
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_03', format=2, channels=2, frequency=48000, lengthbytes=56480, lengthpcm=184489, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24864
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000060277bc
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E83DD38
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x146abf96f
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x146abfa2b
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x146abfa5b
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x146abfaf8
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x13ceaab68
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_01', format=2, channels=2, frequency=48000, lengthbytes=66464, lengthpcm=202807, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SoundI::release                          :  (00000000426EC968)
-[LOG] SoundI::release                          :     EggBoss_VO_06 (000000004E3D9BC8)
-[LOG] SoundI::release                          :  (00000000426ED208)
-[LOG] SoundI::release                          :     EggBoss_VO_07 (000000004E3D9D68)
-[LOG] SoundI::release                          :  (00000000426ECAD8)
-[LOG] SoundI::release                          :     Enemy_Laser_Fire_1 (000000004E3D8D28)
-[LOG] SoundI::release                          :  (00000000426ED378)
-[LOG] SoundI::release                          :     Enemy_Explode_3 (000000004E3D9068)
-[LOG] SoundI::release                          :  (00000000426EC0C8)
-[LOG] SoundI::release                          :     Enemy_Explode_1 (000000004E3D86A8)
-[LOG] SoundI::release                          :  (00000000426ED098)
-[LOG] SoundI::release                          :     Player_Laser_2 (000000004E3DA3E8)
-[LOG] SoundI::release                          :  (00000000426EC238)
-[LOG] SoundI::release                          :     EggBoss_VO_01 (000000004E3D9F08)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E83DB18
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Player_Laser_2', format=2, channels=1, frequency=48000, lengthbytes=2848, lengthpcm=18120, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.794250.
-[LOG] SystemI::createSound                     : filename = \Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 00000000341E6C08 : node = 00000000347D8780
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000042AAF448.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000341E6C08
-[LOG] SystemI::createSoundInternal             :     Create name='\Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000347D8898
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='CosmicEggTheme_Bounce1', format=2, channels=2, frequency=48000, lengthbytes=573920, lengthpcm=2048000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000341E6C08
-[LOG] SoundI::getSubSound                      : sound 00000000341E6C08.  Subsound index 0 / 1
-[LOG] SoundI::release                          : CosmicEggTheme_Bounce1 (00000000341E72C8)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (000000004E3D89E8)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (00000000341E6DB8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E1B0AA8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_06', format=2, channels=2, frequency=48000, lengthbytes=47328, lengthpcm=161474, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E1B0AA8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_07', format=2, channels=2, frequency=48000, lengthbytes=44032, lengthpcm=144897, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.967163.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000000042AB0F08
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Laser_Fire_1', format=2, channels=1, frequency=48000, lengthbytes=6720, lengthpcm=38064, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.939453.
-[LOG] SoundI::release                          :  (00000000426EBF58)
-[LOG] SoundI::release                          :     EggBoss_VO_02 (000000004E3D93A8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E1B2648
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_1', format=2, channels=1, frequency=48000, lengthbytes=6912, lengthpcm=39976, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004E1B2648
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_3', format=2, channels=2, frequency=48000, lengthbytes=36320, lengthpcm=155040, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.977844.
-[LOG] SoundI::release                          :  (00000000426ECC48)
-[LOG] SoundI::release                          :     EggBoss_VO_03 (000000004E3DA0A8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004202D598
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_02', format=2, channels=2, frequency=48000, lengthbytes=53472, lengthpcm=174163, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004202D598
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_03', format=2, channels=2, frequency=48000, lengthbytes=56480, lengthpcm=184489, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000000004202D598
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_01', format=2, channels=2, frequency=48000, lengthbytes=66464, lengthpcm=202807, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SoundI::release                          :  (00000000426EC968)
-[LOG] SoundI::release                          :     EggBoss_VO_06 (000000004E3DA248)
-[LOG] SoundI::release                          :  (00000000426ECAD8)
-[LOG] SoundI::release                          :     EggBoss_VO_07 (000000004E3D8848)
-[LOG] SoundI::release                          :  (00000000426EC0C8)
-[LOG] SoundI::release                          :     Enemy_Laser_Fire_1 (000000004E3D9548)
-[LOG] SoundI::release                          :  (00000000426ED378)
-[LOG] SoundI::release                          :     Enemy_Explode_3 (000000004E3D9A28)
-[LOG] SoundI::release                          :  (00000000426ED098)
-[LOG] SoundI::release                          :     Enemy_Explode_1 (000000004E3D89E8)
-[LOG] SoundI::release                          :  (00000000426EB6B8)
-[LOG] SoundI::release                          :     EggBoss_VO_01 (000000004E3D96E8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D0C38
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_1', format=2, channels=1, frequency=48000, lengthbytes=6912, lengthpcm=39976, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000427D0C38
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Enemy_Explode_3', format=2, channels=2, frequency=48000, lengthbytes=36320, lengthpcm=155040, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.977844.
-[LOG] SystemI::createSound                     : filename = \Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 00000000341E6DB8 : node = 00000000347D84E0
-[LOG] SystemI::createSound                     : add node to async list : head = 0000000042AAF448.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000000341E6DB8
-[LOG] SystemI::createSoundInternal             :     Create name='\Users\John\Documents\GitHub\GameJam_HatchAnEgg\GameJam Week 45 - Hatch an Egg FMOD\Build\Desktop/Master Bank.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000000347D85F8
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='CosmicEggTheme_Bounce1', format=2, channels=2, frequency=48000, lengthbytes=573920, lengthpcm=2048000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000000341E6DB8
-[LOG] SoundI::getSubSound                      : sound 00000000341E6DB8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : CosmicEggTheme_Bounce1 (00000000341E6C08)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (000000004E3D8B88)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (00000000341E5CD8)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420945D8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Player_Hit_2', format=2, channels=2, frequency=48000, lengthbytes=27776, lengthpcm=114700, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SoundI::release                          :  (00000000426EB548)
-[LOG] SoundI::release                          :     EggBoss_VO_02 (000000004E3D9F08)
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420947F8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_02', format=2, channels=2, frequency=48000, lengthbytes=53472, lengthpcm=174163, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1054848
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 24096
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 000000006B0EF5FC
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFDC77BE4B0
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFDC77BE480
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFDC77BE580
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFDC77BE640
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000000420947F8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='EggBoss_VO_01', format=2, channels=2, frequency=48000, lengthbytes=66464, lengthpcm=202807, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
-[LOG] SoundI::release                          :  (00000000426EB828)
-[LOG] SoundI::release                          :     Enemy_Explode_3 (000000004E3D9D68)
-[LOG] SoundI::release                          :  (00000000426ECAD8)
-[LOG] SoundI::release                          :     Enemy_Explode_1 (000000004E3D9BC8)
-[LOG] SoundI::release                          :  (00000000426EC968)
-[LOG] SoundI::release                          :     Player_Hit_2 (000000004E3DA3E8)
-[LOG] SoundI::release                          :  (00000000426EBDE8)
-[LOG] SoundI::release                          :     EggBoss_VO_01 (000000004E3DA248)
-[LOG] SoundI::release                          : CosmicEggTheme_Bounce1 (00000000341E6DB8)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (000000004E3DA0A8)
-[LOG] SoundI::release                          :     CosmicEggTheme_Bounce1 (00000000341E72C8)
-[LOG] SoundI::release                          :  (00000000426EB998)
-[LOG] SoundI::release                          :     EggBoss_VO_02 (000000004E3D9A28)
-[LOG] SoundI::release                          :  (00000000426EBF58)
-[LOG] SoundI::release                          :     EggBoss_VO_03 (000000004E3D8D28)
-[LOG] SoundI::release                          :  (00000000426ECDB8)
-[LOG] SoundI::release                          :     EggBoss_VO_04 (0000000042AAEC78)
-[LOG] SoundI::release                          :  (00000000426ECF28)
-[LOG] SoundI::release                          :     EggBoss_VO_05 (0000000042AAEAD8)
-[LOG] SoundI::release                          :  (00000000426ED208)
-[LOG] SoundI::release                          :     Player_Laser_2 (000000004E3D9888)
-[LOG] SoundI::release                          :  (00000000426EC518)
-[LOG] SoundI::release                          :     PowerUpLoop (0000000042AAFCB8)
+[LOG] SoundI::release                          : EggBoss_VO_06.ogg (0x142f98e98)
+[LOG] SoundI::release                          : EggBoss_VO_07.ogg (0x142fbdc98)
+[LOG] SoundI::release                          : Enemy_Laser_Fire_1.ogg (0x142f0ad78)
+[LOG] SoundI::release                          : Enemy_Explode_3.ogg (0x1452dd6d8)
+[LOG] SoundI::release                          : Enemy_Explode_1.ogg (0x145281458)
+[LOG] SoundI::release                          :  (0x13ce0c1a8)
+[LOG] SoundI::release                          :     EggBoss_VO_01 (0x13ce30f38)
+[LOG] SoundI::release                          :  (0x13ce62c68)
+[LOG] SoundI::release                          :     EggBoss_VO_02 (0x13ce20d18)
+[LOG] SoundI::release                          :  (0x14528fd78)
+[LOG] SoundI::release                          :     EggBoss_VO_03 (0x145277e68)
+[LOG] SoundI::release                          :  (0x13ceb9808)
+[LOG] SoundI::release                          :     EggBoss_VO_04 (0x13ce1f208)
+[LOG] SoundI::release                          :  (0x13ce13eb8)
+[LOG] SoundI::release                          :     EggBoss_VO_05 (0x13ce2f448)
+[LOG] SoundI::release                          :  (0x1452a1fa8)
+[LOG] SoundI::release                          :     Player_Laser_2 (0x1452e7588)
+[LOG] SoundI::release                          :  (0x142fd17a8)
+[LOG] SoundI::release                          :     PowerUpLoop (0x142fb15b8)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] ProfileClient::markForDead               : Closing client connection
+[ERR] ProfileClient::recvThreadLoopFunction    : Recv thread loop returned 16
+[LOG] Thread::callback                         : FMOD profiler thread (recv) finished.
+[LOG] Thread::callback                         : FMOD profiler thread (send) finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -1087,6 +401,4 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.

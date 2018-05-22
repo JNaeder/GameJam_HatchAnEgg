@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114516755531313770}
-  - {fileID: 114961576301098280}
+  - {fileID: 114217342308970004}
   EditorEvents:
   - {fileID: 114150639921341498}
   - {fileID: 114915304276975930}
@@ -23,9 +23,9 @@ MonoBehaviour:
   - {fileID: 114215446987543156}
   - {fileID: 114519741050654360}
   - {fileID: 114233826707146706}
-  MasterBankRef: {fileID: 114961576301098280}
+  MasterBankRef: {fileID: 114217342308970004}
   StringsBankRef: {fileID: 114516755531313770}
-  stringsBankWriteTime: 636625238665746429
+  stringsBankWriteTime: 636625993190000000
   cacheVersion: 2
 --- !u!114 &114012895679056200
 MonoBehaviour:
@@ -117,6 +117,21 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
+--- !u!114 &114100720558665290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: isShooting
+  Min: 0
+  Max: 2
+  Default: 0
 --- !u!114 &114101979116190842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +198,7 @@ MonoBehaviour:
   Path: event:/Enemy Laser Fire
   guid: 105191c117e230498b0f34ba370f93ad
   Banks:
-  - {fileID: 114961576301098280}
+  - {fileID: 114217342308970004}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -250,7 +265,7 @@ MonoBehaviour:
   Path: event:/Player Hit
   guid: 7c5ea44b15fe0740bed0b983fdc0724e
   Banks:
-  - {fileID: 114961576301098280}
+  - {fileID: 114217342308970004}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -258,6 +273,25 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2389
+--- !u!114 &114217342308970004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an
+    Egg FMOD/Build/Desktop/Master Bank.bank
+  lastModified: 636625993190000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 1079712
+  Exists: 1
 --- !u!114 &114233826707146706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,7 +306,7 @@ MonoBehaviour:
   Path: event:/EggBossExitVO
   guid: aa5aaba13a77634c96b0af7d690c7c89
   Banks:
-  - {fileID: 114961576301098280}
+  - {fileID: 114217342308970004}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -294,7 +328,7 @@ MonoBehaviour:
   Path: event:/Player Laser Fire
   guid: 428923458aafa14d9e0c292e2ee3d59c
   Banks:
-  - {fileID: 114961576301098280}
+  - {fileID: 114217342308970004}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -419,13 +453,13 @@ MonoBehaviour:
   Path: event:/Shoot ReCharge
   guid: 7c1aeb1fce693c45b957f3a1be3a6f54
   Banks:
-  - {fileID: 114961576301098280}
+  - {fileID: 114217342308970004}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114267890876352132}
-  - {fileID: 114012895679056200}
+  - {fileID: 114445824943959130}
+  - {fileID: 114653877808354390}
   MinDistance: 0
   MaxDistance: 0
   Length: 4955
@@ -445,6 +479,21 @@ MonoBehaviour:
   Max: 2
   Default: 0
 --- !u!114 &114431222723552994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ChargeRatio
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114445824943959130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -481,6 +530,21 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 793
+--- !u!114 &114456482706579386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ChargeRatio
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114464153955052382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,6 +559,21 @@ MonoBehaviour:
   Name: ChargeRatio
   Min: 0
   Max: 1
+  Default: 0
+--- !u!114 &114472409122881178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: isShooting
+  Min: 0
+  Max: 2
   Default: 0
 --- !u!114 &114498123125646386
 MonoBehaviour:
@@ -560,8 +639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: /Users/John/Documents/GitHub/GameJam_HatchAnEgg/GameJam Week 45 - Hatch an
-    Egg FMOD\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636625238665746429
+    Egg FMOD/Build/Desktop/Master Bank.strings.bank
+  lastModified: 636625993190000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -581,7 +660,7 @@ MonoBehaviour:
   Path: event:/Music
   guid: a8cb43e69584ac47a107dd74f9b00e0d
   Banks:
-  - {fileID: 114961576301098280}
+  - {fileID: 114217342308970004}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -618,7 +697,7 @@ MonoBehaviour:
   Path: event:/Enemy Explode
   guid: 671e1a53ef74154f8b4aa1f0d9ca5b8a
   Banks:
-  - {fileID: 114961576301098280}
+  - {fileID: 114217342308970004}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -697,6 +776,21 @@ MonoBehaviour:
   - Name: Desktop
     Value: 1106
   Exists: 1
+--- !u!114 &114653877808354390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: isShooting
+  Min: 0
+  Max: 2
+  Default: 0
 --- !u!114 &114675757467380588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,6 +919,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114819879080049916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: ChargeRatio
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114865638813545684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,7 +1008,7 @@ MonoBehaviour:
   Path: event:/EggBoss EnterVO
   guid: 2955f3663972de4a84b88f26ca4e323f
   Banks:
-  - {fileID: 114961576301098280}
+  - {fileID: 114217342308970004}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

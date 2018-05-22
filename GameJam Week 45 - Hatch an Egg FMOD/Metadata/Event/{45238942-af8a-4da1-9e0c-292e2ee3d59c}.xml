@@ -94,6 +94,7 @@
         </property>
         <relationship name="modulators">
             <destination>{4dc872ad-78da-4ffb-bd54-89679b4a7bc2}</destination>
+            <destination>{1b49edb6-d363-40f1-ba25-3600b3abf2fb}</destination>
         </relationship>
         <relationship name="audioFile">
             <destination>{0917786b-fc2d-4d6a-be52-917c2b77054d}</destination>
@@ -116,6 +117,7 @@
     <object class="MixerBusEffectChain" id="{be7ab39a-aaf2-4bdf-b51c-89cd0d01989c}">
         <relationship name="effects">
             <destination>{73b69bc1-209f-40fd-8fcd-9f188e0c9fbe}</destination>
+            <destination>{4131f5af-c5dc-4c91-892d-90ea7c9ebfcc}</destination>
         </relationship>
     </object>
     <object class="MixerBusPanner" id="{3b4dfdd0-1c3a-4474-829d-d45347526c24}"/>
@@ -125,7 +127,15 @@
             <value>pitch</value>
         </property>
         <property name="amount">
-            <value>10.5</value>
+            <value>42</value>
+        </property>
+    </object>
+    <object class="RandomizerModulator" id="{1b49edb6-d363-40f1-ba25-3600b3abf2fb}">
+        <property name="nameOfPropertyBeingModulated">
+            <value>volume</value>
+        </property>
+        <property name="amount">
+            <value>3.5</value>
         </property>
     </object>
     <object class="MixerBusEffectChain" id="{c44d4c0a-4191-4815-92a7-b9537c00d410}">
@@ -135,5 +145,16 @@
     </object>
     <object class="MixerBusPanner" id="{d892947d-ed2c-4657-8cd8-db7c85690ffb}"/>
     <object class="MixerBusFader" id="{73b69bc1-209f-40fd-8fcd-9f188e0c9fbe}"/>
+    <object class="MixerSend" id="{4131f5af-c5dc-4c91-892d-90ea7c9ebfcc}">
+        <property name="level">
+            <value>-12</value>
+        </property>
+        <property name="inputFormat">
+            <value>0</value>
+        </property>
+        <relationship name="mixerReturn">
+            <destination>{d8a6d8c0-5305-4994-90a4-70cb9c5ca9f3}</destination>
+        </relationship>
+    </object>
     <object class="MixerBusFader" id="{f76027e0-58f9-4cbf-b1b8-f0d35f85de5f}"/>
 </objects>
