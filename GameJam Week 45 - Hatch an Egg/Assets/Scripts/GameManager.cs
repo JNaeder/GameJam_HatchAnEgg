@@ -21,16 +21,15 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		print(isPaused);
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (!isPaused) {
                 pauseGame();
-            }
-            if (isPaused)
+			} else if (isPaused)
             {
                 UnpauseGame();
             }
-            isPaused = !isPaused;
+            
 
         }
 
@@ -57,6 +56,7 @@ public class GameManager : MonoBehaviour {
     public void MainMenu() {
         SceneManager.LoadScene(0);
 		Time.timeScale = 1;
+		isPaused = false;
     }
 
     public void QuitGame() {
@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour {
 
 
     void pauseGame() {
+		isPaused = true;
         print("Pause");
         pauseScreen.SetActive(true);
         Time.timeScale = 0;
@@ -81,5 +82,6 @@ public class GameManager : MonoBehaviour {
         pauseScreen.SetActive(false);
         Time.timeScale = 1;
 		eS.SetSelectedGameObject(null);
+
     }
 }
